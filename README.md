@@ -80,3 +80,4 @@ Aplikasi memerlukan izin berikut:
 ---
 
 ## 📂 Struktur Proyek (Contoh)
+![mockup](Mockup.png)
