@@ -1,0 +1,225 @@
+{
+  "name": "EAS",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ntfy.ubharajaya.ac.id/EAS",
+        "sendBody": true,
+        "contentType": "raw",
+        "body": "=Absensi: {{ $json.body.nama }} NPM: {{ $json.body.npm }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -272,
+        -240
+      ],
+      "id": "83504eec-6d20-46d7-9ea1-509ae4ee8660",
+      "name": "NTFY HTTP Request"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "23c6993d-1792-48fb-ad1c-ffc78a3e6254",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -864,
+        -112
+      ],
+      "id": "9ed3d2db-2d50-40b5-8408-7404edd48442",
+      "name": "Webhook Absensi",
+      "webhookId": "23c6993d-1792-48fb-ad1c-ffc78a3e6254"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1jH15MfnNgpPGuGeid0hYfY7fFUHCEFbCmg8afTyyLZs",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Absensi",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "latitude": "={{ $json.body.latitude }}",
+            "longitude": "={{ $json.body.longitude }}",
+            "timestamp": "={{ $json.body.timestamp }}",
+            "foto_base64": "={{ $json.body.foto_base64 }}",
+            "nama": "={{ $json.body.nama }}",
+            "npm": "={{ $json.body.npm }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "npm",
+              "displayName": "npm",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "nama",
+              "displayName": "nama",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "latitude",
+              "displayName": "latitude",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "longitude",
+              "displayName": "longitude",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "photo",
+              "displayName": "photo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "foto_base64",
+              "displayName": "foto_base64",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -272,
+        -32
+      ],
+      "id": "cd83a9fa-ea00-4a20-aa31-846bfe044aeb",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hNVNhkTQbqkJ3C56",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -528,
+        -240
+      ],
+      "id": "4ed9edf6-4562-41b6-afd0-89c96991454a",
+      "name": "Code in JavaScript"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook Absensi": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NTFY HTTP Request": {
+      "main": [
+        []
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "NTFY HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "49466b31-67ce-49b7-af37-33cd28d7092d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b8ffac81bb85d267c3296e074b3e692ecef11caeef79fa72af892085548f350a"
+  },
+  "id": "E_gxZpNrN3G5ibejHcTFS",
+  "tags": []
+}

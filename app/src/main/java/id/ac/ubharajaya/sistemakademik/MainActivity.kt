@@ -45,8 +45,8 @@ fun kirimKeN8n(
 ) {
     thread {
         try {
-//            val url = URL("https://n8n.lab.ubharajaya.ac.id/webhook/23c6993d-1792-48fb-ad1c-ffc78a3e6254")
-            val url = URL("https://n8n.lab.ubharajaya.ac.id/webhook-test/23c6993d-1792-48fb-ad1c-ffc78a3e6254")
+            val url = URL("https://n8n.lab.ubharajaya.ac.id/webhook/23c6993d-1792-48fb-ad1c-ffc78a3e6254")
+// test URL            val url = URL("https://n8n.lab.ubharajaya.ac.id/webhook-test/23c6993d-1792-48fb-ad1c-ffc78a3e6254")
             val conn = url.openConnection() as HttpURLConnection
 
             conn.requestMethod = "POST"

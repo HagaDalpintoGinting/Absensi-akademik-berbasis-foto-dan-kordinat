@@ -83,8 +83,13 @@ Aplikasi memerlukan izin berikut:
 ![mockup](Mockup.png)
 
 ## Catatan:
-Kembangkan project dari starter yang sudah disediakan, tidak membuat dari awal.
-
+- Kembangkan project dari starter yang sudah disediakan, tidak membuat dari awal.
+- Untuk koordinat bisa ditambah/kurangi angka tertentu agar tidak memunculkan koordinat rumah masing-masing, data awal tetap dari GPS. 
+ 
 ## Pengecekan:
 - https://ntfy.ubharajaya.ac.id/EAS
 - https://docs.google.com/spreadsheets/d/1jH15MfnNgpPGuGeid0hYfY7fFUHCEFbCmg8afTyyLZs/edit?gid=0#gid=0
+
+## Webhook:
+- test: https://n8n.lab.ubharajaya.ac.id/webhook-test/23c6993d-1792-48fb-ad1c-ffc78a3e6254
+- production: https://n8n.lab.ubharajaya.ac.id/webhook/23c6993d-1792-48fb-ad1c-ffc78a3e6254
