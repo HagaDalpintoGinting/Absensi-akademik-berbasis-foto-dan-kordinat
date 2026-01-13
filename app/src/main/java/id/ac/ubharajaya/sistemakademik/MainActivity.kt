@@ -78,7 +78,7 @@ fun kirimKeN8n(
 
             conn.disconnect()
 
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             context.runOnUiThread {
                 Toast.makeText(
                     context,
@@ -176,7 +176,7 @@ fun AbsensiScreen(
         ) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val bitmap =
-                    result.data?.extras?.get("data") as? Bitmap
+                    result.data?.extras?.getParcelable("data", Bitmap::class.java)
                 if (bitmap != null) {
                     foto = bitmap
                     Toast.makeText(
