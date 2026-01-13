@@ -79,5 +79,5 @@ Aplikasi memerlukan izin berikut:
 
 ---
 
-## 📂 Struktur Proyek (Contoh)
+## 📂 Mockup
 ![mockup](Mockup.png)
