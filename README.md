@@ -84,3 +84,7 @@ Aplikasi memerlukan izin berikut:
 
 ## Catatan:
 Kembangkan project dari starter yang sudah disediakan, tidak membuat dari awal.
+
+## Pengecekan:
+- https://ntfy.ubharajaya.ac.id/EAS
+- https://docs.google.com/spreadsheets/d/1jH15MfnNgpPGuGeid0hYfY7fFUHCEFbCmg8afTyyLZs/edit?gid=0#gid=0

@@ -45,7 +45,8 @@ fun kirimKeN8n(
 ) {
     thread {
         try {
-            val url = URL("https://n8n-s.pii.or.id/webhook/dcef8a16-d333-4259-a201-bd12ba780761")
+//            val url = URL("https://n8n.lab.ubharajaya.ac.id/webhook/23c6993d-1792-48fb-ad1c-ffc78a3e6254")
+            val url = URL("https://n8n.lab.ubharajaya.ac.id/webhook-test/23c6993d-1792-48fb-ad1c-ffc78a3e6254")
             val conn = url.openConnection() as HttpURLConnection
 
             conn.requestMethod = "POST"
@@ -53,6 +54,8 @@ fun kirimKeN8n(
             conn.doOutput = true
 
             val json = JSONObject().apply {
+                put("npm", "12345")
+                put("nama","Arif R D")
                 put("latitude", latitude)
                 put("longitude", longitude)
                 put("timestamp", System.currentTimeMillis())
