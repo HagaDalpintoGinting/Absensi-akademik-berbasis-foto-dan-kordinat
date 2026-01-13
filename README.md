@@ -81,3 +81,6 @@ Aplikasi memerlukan izin berikut:
 
 ## 📂 Mockup
 ![mockup](Mockup.png)
+
+## Catatan:
+Kembangkan project dari starter yang sudah disediakan, tidak membuat dari awal.
