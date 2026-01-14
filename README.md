@@ -8,6 +8,8 @@ Aplikasi ini dirancang untuk meningkatkan **validitas kehadiran mahasiswa**, den
 2. Melakukan **pengambilan foto (selfie) secara langsung saat absensi**
 
 ---
+Nama : HAGA DALPINTO GINTING
+NPM  : 202310715176
 
 ## 🎯 Tujuan Proyek
 - Mengimplementasikan **Location-Based Service (LBS)** pada aplikasi mobile
